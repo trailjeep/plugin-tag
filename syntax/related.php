@@ -133,7 +133,9 @@ class syntax_plugin_tag_related extends DokuWiki_Syntax_Plugin {
                 usort($pages, $fnc);
                 // reverse sort the pages
                 krsort($pages);
-                        $pages = array_slice($pages, 0, $num, true);
+                $pages = array_slice($pages, 0, $num, true);
+                $fnc = create_function('$a, $b', 'return rand(-1, 1); ');
+                usort($pages, $fnc);
 
             foreach ($pages as $page) {
                 $pagelist->addPage($page);
